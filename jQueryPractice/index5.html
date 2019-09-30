@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jQueryの練習</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+    </style>
+</head>
+
+<body>
+    <p>jQueryの練習</p>
+    <div id="box"></div>
+
+    <!-- jQueryを利用するための方法で、jQueryのCDNを利用 -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script>
+        // $(document).ready(function () {
+        $(function () {
+            // hide, show
+            // fadeOut, fadeIn
+            // toggle
+            // $('#box').hide('slow');
+            // $('#box').hide(1500);
+            // $('#box').fadeOut(800);
+            // $('#box').toggle(800);
+            // 複数書くと現れたり消えたりを交互に動作
+            // $('#box').toggle(800);
+            // $('#box').toggle(800);
+            // $('#box').toggle(800);
+            // 第二引数でfadeOutしたときの機能を書くことができる
+            // $('#box').fadeOut(800, function () {
+            //     alert('gone');
+            // });
+
+            // click
+            // mouseover, mouseout, mousemove
+            // $('#box').click(function () {
+            //     alert('hi.');
+            // });
+            // メソッドチェーン
+            $('#box').mouseover(function () {
+                $(this).css('background', 'green');
+            })
+                .mouseout(function () {
+                    $(this).css('background', 'red');
+                })
+                // イベントの情報を取得したいときは引数にイベントオブジェクトを渡す
+                // ここではeを渡す。ほかのイベントオブジェクトや得られる情報については公式サイトに書いてある。
+                .mousemove(function (e) {
+                    $(this).text(e.pageX);
+                });
+
+        })
+    </script>
+</body>
+
+</html>

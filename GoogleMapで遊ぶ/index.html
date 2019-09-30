@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CODEPREP - GoogleMap example</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- callback=initMapを指定すると、読み込み完了後にコールバック関数initMap()が実行される -->
+    <!-- 上記は公式ドキュメントで推奨されている方法らしい -->
+    <!-- async属性はスクリプトの読み込みを非同期にする、
+        defer属性はスクリプト実行を文書のパース完了後かつDOMContentLoadedイベントの発生前まで遅延させる -->
+    <!-- 上記属性はロード時間を短くするための工夫 -->
+    <script async defer src="http://maps.googleapis.com/maps/api/js?sensor=TRUE_OR_FALSE&callback=initMap"
+        type="text/javascript"></script>
+    <!-- <script src="js/main.js"></script>
+    <script src="js/main2.js"></script> -->
+    <!-- <script src="js/main3.js"></script> -->
+    <!-- <script src="js/main4.js"></script> -->
+    <script src="js/main5.js"></script>
+</head>
+
+<body>
+    <div class="form row">
+        <div class="col-md-1 col-sm-2">
+            <select id="cities" class="form-control">
+                <option value="東京">東京</option>
+                <option value="大阪">大阪</option>
+                <option value="名古屋">名古屋</option>
+                <option value="札幌">札幌</option>
+                <option value="福岡">福岡</option>
+                <option value="高松">高松</option>
+                <option value="那覇">那覇</option>
+            </select>
+        </div>
+    </div>
+    <div class="map">
+        <div id="map">ここにmapを表示</div>
+    </div>
+    <div class="events">
+        <h3>メッセージ</h3>
+        <div id="messages"></div>
+    </div>
+</body>
+
+</html>

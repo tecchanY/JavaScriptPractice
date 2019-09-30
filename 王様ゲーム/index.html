@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>王様ゲーム</title>
+
+</head>
+
+<body>
+    <h1>王様ゲーム</h1>
+    <p>人数：<input type="text" id="num"></p>
+    <p><input type="button" value="王様曰く、" onclick="kingSaid()"></p>
+    <p id="result"></p>
+    <script>
+        function kingSaid() {
+            var orders = [
+                'dekopinn',
+                'Quiz',
+                'homeru',
+                'take juice',
+            ];
+            // 0~3 → Math.floor(Math.random() * orders.length)
+            var order = orders[Math.floor(Math.random() * orders.length)];
+            // console.log(order);
+
+            var num = document.getElementById('num').value;
+            // 1..4 → 0..3 + 1
+            var p1 = Math.floor(Math.random() * (num)) + 1;
+            var p2;
+            // console.log(p1);
+
+            // 先にp2を計算して、そのあとにp1とp2の値が一致していたら処理を繰り返す
+            // num = 1だと無限ループしてしまうので回避するためのif文を用意
+
+            if (num < 2) {
+                p2 = 1;
+            } else {
+                do {
+                    var p2 = Math.floor(Math.random() * (num)) + 1;
+                } while (p1 === p2);
+                // console.log(p1);
+                // console.log(p2);
+            }
+
+            document.getElementById('result').innerHTML =
+                '#' + p1 + 'の人が、#' + p2 + 'の人に' + order;
+
+        }
+    </script>
+</body>
+
+</html>

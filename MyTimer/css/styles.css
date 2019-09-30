@@ -1,0 +1,46 @@
+/* 全体で揃えたいものを書く。フォントとか */
+body {
+    font-family: 'Courier New', sans-serif;
+    font-size: 14px;
+    background: #eee;
+}
+
+.container {
+    margin: 20px auto;
+    width: 365px;
+    background: #ffffff;
+    padding: 15px;
+    text-align: center;
+}
+
+#timer {
+    background: #dddddd;
+    height: 120px;
+    line-height: 120px;
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+/* controlsクラス中のdivタグ */
+.controls > div {
+    cursor: pointer;
+    user-select: none;
+    width: 80px;
+    background: #ddd;
+    height: 45px;
+    line-height: 45px;
+    float: left;
+}
+
+.controls {
+    overflow: hidden;
+}
+
+/* div同士の間 */
+.controls > div + div {
+    margin-left: 15px;
+}
+
+.controls > div:hover {
+    opacity: 0.5;
+}

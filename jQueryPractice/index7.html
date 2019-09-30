@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jQueryの練習</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+    </style>
+</head>
+
+<body>
+    <p>jQueryの練習</p>
+    <button>Add</button>
+
+    <!-- jQueryを利用するための方法で、jQueryのCDNを利用 -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script>
+        // $(document).ready(function () {
+        $(function () {
+            // p要素を動的に作成する
+
+            $('button').click(function () {
+                var p = $('<p>').text('vanish').addClass('vanish');
+                $(this).before(p);
+            });
+
+            // documentが読み込まれてから動的に生成するので、読み込み時にvanishクラスは存在しない。
+            // 以下のような書き方でもvanishクラスを削除できない。
+            // $('.vanish').click(function () {
+            //     $(this).remove();
+            // })
+
+            // 読み込まれたときに存在していない要素に対してのイベントにはonを使う。
+            // セレクタには親要素を指定
+            $('body').on('click', '.vanish', function () {
+                $(this).remove();
+            });
+
+        });
+    </script>
+</body>
+
+</html>

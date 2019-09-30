@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jQueryの練習</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+    </style>
+</head>
+
+<body>
+    <p>jQueryの練習</p>
+
+    <button>もっと読む</button>
+    <div id="result"></div>
+
+    <!-- jQueryを利用するための方法で、jQueryのCDNを利用 -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script>
+        // $(document).ready(function () {
+        $(function () {
+
+            // Ajax、エイジャックスと読む
+            // サーバと通信しつつページの書き換えを行うページ内通信の手法
+            // ページ全体の更新ではなく一部のみを書き換えられる
+            // 細かいセキュリティ面などを除いた基本的な部分だけ
+            // Live Serverでローカルサーバーを起動させる必要あり
+            // 立ち上げるワークスペースの場所(VSCodeの場合はフォルダらしい)は作業ごとに変わるだろうから毎回「設定」から変更すること
+            // Ajaxの各種命令は公式サイトのAPI Documentationに書かれている
+
+            // load サーバからhtmlなどの情報を読み込むときに使う
+
+            // $('button').click(function () {
+            //     $('#result').load('more.html');
+            // });
+
+            // 非同期 処理が終わる前に次の処理に移る
+            // 以下だと上手くいかないのは、loadという命令が非同期だから。
+
+            // これはloadの第二引数にコールバック関数を指定する
+            // $('button').click(function () {
+            //     $('#result').load('more.html');
+            //     // loadの行の処理を読み込み終わる前に次の行を読んで失敗してしまう
+            //     // $('#message').css('color', 'red');
+            // });
+
+            $('button').click(function () {
+                $('#result').load('more.html', function () {
+                $('#message').css('color', 'red');
+                });
+            });
+
+        });
+    </script>
+</body>
+
+</html>

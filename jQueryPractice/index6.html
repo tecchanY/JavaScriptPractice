@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jQueryの練習</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+    </style>
+</head>
+
+<body>
+    <p>jQueryの練習</p>
+    <input type="text" id="name">
+    <select name="members" id="members">
+        <option>tatata</option>
+        <option>kakaka</option>
+        <option>dododo</option>
+    </select>
+
+    <!-- jQueryを利用するための方法で、jQueryのCDNを利用 -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script>
+        // $(document).ready(function () {
+        $(function () {
+            // focus, blur
+            // focusが当たったところを強調したり外れたら強調を消したり、よく使われる
+            // change
+            $('#name')
+                .focus(function () {
+                    $(this).css('background', 'red')
+                        .blur(function () {
+                            $(this).css('background', 'white');
+                        });
+                })
+            $('#members').change(function () {
+                alert('changed');
+            })
+            // 上記のようにalertでなくとも、選択されたら次のセレクトボックスの内容が変わるとかで使える。
+
+        })
+    </script>
+</body>
+
+</html>

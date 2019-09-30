@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jQueryの練習</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+    </style>
+</head>
+
+<body>
+    <p>jQueryの練習</p>
+
+    <p>
+        <input type="text" name="name" id="name">
+        <input type="button" id="greet" value="Greet!">
+    </p>
+    <div id="result"></div>
+
+    <!-- jQueryを利用するための方法で、jQueryのCDNを利用 -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script>
+        // $(document).ready(function () {
+        $(function () {
+
+            // パラメータを複数渡すような複雑な処理の場合
+            // $.post データを更新したりするとき
+            // $.get 単にデータを取得したいとき
+            $('#greet').click(function () {
+
+                // サーバ側のファイルとパラメータとコールバック関数を書く
+                $.get('greet.php', {
+                    // keyとvalueで渡す
+                    // オプションを渡せばいいだけなのでセミコロン;は要らない
+                    name: $('#name').val()
+                    // greet.phpの結果はコールバック関数の引数に入れることができる
+                }, function (data) {
+                    $('#result').html(data);
+                });
+
+            });
+
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Web Speech</title>
+</head>
+<body>
+    <button>Start</button>
+    <script>
+        'use strict';
+
+        // ビルトインサーバが必要、windowsならlocalhost
+
+        {
+            const btn = document.querySelector('button');
+            const speech = new webkitSpeechRecognition();
+            speech.lang = 'en-US';
+
+            btn.addEventListener('click', ()=> {
+                // console.log('button clicked!!!');
+                // 二度押しで二回動作しないように無効化
+                btn.disabled = true;
+                speech.start();
+            })
+
+            //
+
+            speech.onresult = (e) => {
+                // eの中身をconsole.logで表示し、背景の色を音声で発した色に変えるために
+                // 必要な認識した音声や認識が終了したタイミングがどこに格納されているかを調べる
+                // console.log('e');
+                speech.stop();
+                if (e.results[0].isFinal) {
+                    console.log(e.results[0][0].transcript);
+                    // 認識した言葉がCSSで対応している色なら、背景に適用
+                    document.body.style.background = e.results[0][0].transcript;
+                }
+            }
+
+            // 連続で認識させる
+            speech.onend = ()=> {
+                speech.start();
+            }
+
+            speech.onsoundstart = ()=> {
+                btn.textContent = 'Proccesing...';
+            }
+
+            speech.onsounded = ()=> {
+                btn.textContent = 'Waiting...';
+            }
+        }
+    </script>
+</body>
+</html>

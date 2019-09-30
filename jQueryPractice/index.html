@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jQueryの練習</title>
+</head>
+
+<body>
+    <p>jQueryの練習</p>
+    <ul id="main">
+        <li>0</li>
+        <li class="item">1</li>
+        <li class="item">2</li>
+        <li>
+            3
+            <ul id="sub">
+                <li>3-0</li>
+                <li>3-1</li>
+                <li class="item">3-2</li>
+                <li class="item">3-3</li>
+                <li>3-4</li>
+            </ul>
+        </li>
+    </ul>
+    <!-- jQueryを利用するための方法で、jQueryのCDNを利用 -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script>
+        // $(document).ready(function () {
+        $(function () {
+            // セレクタ：処理対象となるDOM要素を指定する記法、下記ならpが該当
+            // メソッド：処理、下記なら.css('color', 'red')が該当
+            // メソッドチェーン：メソッドを繋げたもの
+            // $('p').css('color', 'red').hide('slow');
+
+            // セレクタ
+            // $('')
+            // html要素　p h1 ul
+            // id #main
+            // class .item
+            // $('.item').css('color', 'red');
+
+            // # .
+            // > 直下の子要素
+            //  （半角空白） それ以下の要素
+            // , 複数の要素
+            // + 隣接する要素、下記例ならitemの横にあるitemが対象となる
+            // $('#main > .item').css('color', 'red');
+            // $('#main .item').css('color', 'red');
+            // $('p, .item').css('color', 'red');
+            // $('.item + .item').css('color', 'red');
+
+            // セレクタのフィルタ
+            // :eq()
+            // :gt(), lt() greater thanとless thanの略らしい、gt(1)なら3-2, 3-3, 3-4が対象となる
+            // :even, :odd 偶数と奇数の指定
+            // :contains()
+            // :first, :last
+            // $('#sub > li:eq(2)').css('color', 'red');
+            // $('#sub > li:gt(1)').css('color', 'red');
+            // $('#sub > li:odd').css('color', 'red');
+            // ""と''は一緒には使えないので注意
+            // $("#sub > li:contains('4')").css('color', 'red');
+
+            // メソッドを使ったDOM要素の指定
+            // parent(), children()
+            // next(), prev()
+            // siblings 兄弟要素
+            // $('#sub').parent().css('color', 'red');
+            // $('#sub > li:eq(2)').prev().css('color', 'red');
+            $('#sub > li:eq(2)').siblings().css('color', 'red');
+
+        })
+    </script>
+
+</body>
+
+</html>

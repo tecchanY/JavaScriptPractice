@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <title>スクロール実験</title>
+</head>
+<body style="text-align:center">
+    <h1>スクロール実験</h1>
+    <p>hello</p>
+    <p>hello</p>
+    <p>hello</p>
+    <p>hello</p>
+    <p>hello</p>
+    <p>hello</p>
+    <p>hello</p>
+    <p>hello</p>
+    <p>hello</p>
+    <p>hello</p>
+    <p>hello</p>
+    <p>hello</p>
+    <p>hello</p>
+    <p>hello</p>
+    <p>hello</p>
+    <p>hello</p>
+    <p>hello</p>
+    <p>hello</p>
+    <p>hello</p>
+    <p>hello</p>
+    <p>hello</p>
+    <p>hello</p>
+    <p>hello</p>
+    <p>hello</p>
+    <p>hello</p>
+    <p>hello</p>
+    <p>hello</p>
+    <p>hello</p>
+    <p>hello</p>
+    <p>hello</p>
+    <p>hello</p>
+    <p>hello</p>
+    <p>hello</p>
+    <p>hello</p>
+    <p>hello</p>
+    <p>hello</p>
+    <p>hello</p>
+    <p>hello</p>
+    <p>hello</p>
+    <p>hello</p>
+    <p>hello</p>
+    <p>hello</p>
+
+    <div id="back-to-top" style="position: fixed; right: 5px; bottom:5px"><a href="#">↑</a></div>
+    <div id="pos" style="position: fixed; left: 5px; bottom:5px"></div>
+
+    <script>
+    $(function () {
+        // ロードしたら#back-to-topを消す
+        $('#back-to-top').hide();
+
+        // スクロールが十分されたらback-to-topを表示、スクロールが戻ったら非表示
+        $(window).scroll(function () {
+            // どのくらいスクロールするのか確認
+            $('#pos').text($(this).scrollTop());
+
+            if ($(this).scrollTop() > 60) {
+                $('#back-to-top').fadeIn();
+            } else {
+                $('#back-to-top').fadeOut();
+            }
+        })
+
+        // #back-to-topがクリックされたら上に戻る
+        $('#back-to-top a').click(function () {
+            $('body').animate({
+                // オプションには;を付けないことに注意。
+                scrollTop: 0
+            }, 500);
+            return false;
+        })
+    });
+    </script>
+</body>
+
+</html>

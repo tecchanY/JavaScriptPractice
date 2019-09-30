@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jQueryの練習</title>
+    <style>
+        .myStyle {
+            border: 5px solid green;
+            font-size: 48px;
+        }
+    </style>
+</head>
+
+<body>
+    <p>jQueryの練習</p>
+    <!-- data-はカスタム属性 -->
+    <a href="http://google.com" data-sitename="google">Google</a>
+    <input type="text" value="hello">
+
+    <!-- jQueryを利用するための方法で、jQueryのCDNを利用 -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script>
+        // $(document).ready(function () {
+        $(function () {
+            // $('a').attr('href', 'http://google.co.jp');
+            // console.log($('a').data('sitename'));
+
+            // text text部分を変更
+            // html html要素を変更
+            // val valueの中身を変更
+            // remove, empty 要素の除去したり空にしたり
+            // $('a').text('just changed');
+            // console.log($('a').text());
+            // $('p').html('<a href="">click!</a>');
+            // console.log($('input').val());
+            // $('input').val('hello again');
+            $('p').remove();
+
+        })
+    </script>
+
+</body>
+
+</html>

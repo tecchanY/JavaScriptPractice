@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jQueryの練習</title>
+    <style>
+        .myStyle {
+            border: 5px solid green;
+            font-size: 48px;
+        }
+    </style>
+</head>
+
+<body>
+    <p>jQueryの練習</p>
+    <!-- data-はカスタム属性 -->
+    <p><a href="http://google.com" data-sitename="google">Google</a></p>
+    <p><a href="http://yahoo.co.jp">Yahoo!</a></p>
+    <p><a href="http://dotinstall.com">Dotinstall</a></p>
+
+    <!-- jQueryを利用するための方法で、jQueryのCDNを利用 -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script>
+        // $(document).ready(function () {
+        $(function () {
+            // 属性セレクタ
+            // = !=
+            // *= 含まれる
+            // ^=
+            // $= 終わりが一致
+            // $('a[href="http://google.com"]').css('background', 'red');
+            // $('a[href!="http://google.com"]').css('background', 'red');
+            // $('a[href*="dotinstall"]').css('background', 'red');
+            // $('a[href^="http://google.com"]').css('background', 'red');
+            // $('a[href$="jp"]').css('background', 'red');
+
+            // メソッド
+            // .css 設定・取得
+            // $('p').css('color', 'red').css('background', 'blue');
+            // console.log($('p').css('color'));
+
+            // addClass, removeClass スタイルを一気につけることができる
+            // $('p').addClass('myStyle');
+
+            // attr 属性の取得と設定
+            // console.log($('a').attr('href'));
+            // $('a').attr('href', 'http://google.co.jp');
+            // data
+            console.log($('a').data('sitename'));
+
+        })
+    </script>
+
+</body>
+
+</html>
